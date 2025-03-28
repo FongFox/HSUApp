@@ -1,2 +1,2 @@
 # HSUMobileApp
-An simple Hoa Sen University Mobile App using .Net MAUI (with MVVM Architecture).
+An simple Hoa Sen University App using .Net
