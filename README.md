@@ -1,2 +1,2 @@
 # HSUMobileApp
-An simple Hoa Sen University mobile app using .Net (with MVVM )
+An simple Hoa Sen University app using .Net
