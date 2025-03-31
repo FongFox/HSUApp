@@ -3,13 +3,20 @@
     x:Class="HSUMauiApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:HSUMauiApp"
+    xmlns:views="clr-namespace:HSUMauiApp.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="HSUMauiApp">
 
+    <!-- Trang Login -->
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Route="LoginPage" />
+
+    <!-- Trang Main -->
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
 
 </Shell>

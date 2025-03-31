@@ -1,8 +1,7 @@
-﻿namespace HSUWebAPI.Dto
+﻿namespace HSUWebAPI.Dto;
+
+public class LoginDto
 {
-    public class LoginDto
-    {
-        public string name { get; set; }
-        public string password { get; set; }
-    }
+    public string Name { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
 }
