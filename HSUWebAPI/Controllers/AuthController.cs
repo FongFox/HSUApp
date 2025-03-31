@@ -1,6 +1,6 @@
 ﻿using System;
-using HSUWebAPI.Dto;    
-using HSUWebAPI.Model;
+using HSUWebAPI.Dto;
+//using HSUWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HSUWebAPI.Controllers;
@@ -12,13 +12,19 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public bool Login([FromBody] LoginDto userLogin)
     {
-        User simpleUser = new User();
-        simpleUser.Name = "user";
-        simpleUser.Password = "123456";
+        var simpleUser = new LoginDto()
+        {
+            Name = "user",
+            Password = "1234"
 
-        string[] symbols = new string[] { "📱", "💡", "🔔", "🛠️", "📲", "⚙️", "🔒", "📁", "📤", "🎨", "📞", "📧", "🌐", "📋", "📝", "📦", "📌", "🔍", "🔗" };
+           // simpleUser.Name = "user";
+           // simpleUser.Password = "123456";
 
-        if (userLogin.name != simpleUser.Name || userLogin.password != simpleUser.Password) {
+        };
+
+       
+
+        if (userLogin.Name != simpleUser.Name || userLogin.Password != simpleUser.Password) {
             return false;
         }
 

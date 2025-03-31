@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace HSUMauiApp.ViewModels
 {
-    internal class LoginViewModel
+    public class LoginViewModel
     {
+        public LoginViewModel() {
+            //https://localhost:8081/api/auth/login
+        }
     }
 }
