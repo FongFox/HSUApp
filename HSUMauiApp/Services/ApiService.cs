@@ -13,7 +13,7 @@ public class ApiService
   {
     _httpClient = new HttpClient
     {
-      BaseAddress = new Uri("https://localhost:8081/api/")
+      BaseAddress = new Uri("http://localhost:8080/api/")
     };
   }
 
