@@ -15,6 +15,7 @@ public class ApiService
         //{
         //  BaseAddress = new Uri("https://10.0.2.2:7107/api/")
         //};
+
         var handler = new HttpClientHandler
         {
             ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
@@ -68,4 +69,29 @@ public class ApiService
     }
   }
 
+  public async Task<IEnumerable<MenuModel>> GetMenuModelAsync() {
+      try
+      {
+        var response = await _httpClient.GetAsync("home/icons");
+
+        if (response.IsSuccessStatusCode)
+        {
+          var responseContent = await response.Content.ReadAsStringAsync();
+          var menuModels = JsonConvert.DeserializeObject<IEnumerable<MenuModel>>(responseContent);
+
+          return menuModels;
+        }
+        else
+        {
+          var errorContent = await response.Content.ReadAsStringAsync();
+          var errorResult = JsonConvert.DeserializeObject<dynamic>(errorContent);
+          throw new Exception(errorResult.message);
+        }
+      }
+      catch (Exception ex)
+      {
+          // Log exception nếu cần
+          throw new Exception($"An error occurred: {ex.Message}");
+      }
+  }
 }
