@@ -1,13 +1,18 @@
 ﻿using System;
 using Microsoft.Maui.Controls;
+using HSUMauiApp.Services;
+using HSUMauiApp.ViewModels;
 
 namespace HSUMauiApp.Views;
 
-public partial class LoginPage : ContentPage
+public partial class LandingPage : ContentPage
 {
-    public LoginPage()
+    private readonly LoginViewModel _loginViewModel;
+
+    public LandingPage(ApiService apiService)
     {
         InitializeComponent();
+        _loginViewModel = new LoginViewModel(apiService);
     }
 
     private async void OnLoginClicked(object sender, EventArgs e)
@@ -30,8 +35,9 @@ public partial class LoginPage : ContentPage
             return;
         }
 
-        // So sánh giá trị
-        if (email == "sinhvien@hsu.edu.vn" && password == "123456")
+        // Gọi LoginViewModel để xử lý đăng nhập
+        var (success, message) = await _loginViewModel.LoginAsync(email, password);
+        if (success)
         {
             await DisplayAlert("Đăng nhập", "Đăng nhập thành công!", "OK");
             try
@@ -45,7 +51,7 @@ public partial class LoginPage : ContentPage
         }
         else
         {
-            await DisplayAlert("Lỗi", $"Email hoặc mật khẩu không đúng!\nEmail nhập: '{email}'\nMật khẩu nhập: '{password}'", "Thử lại");
+            await DisplayAlert("Lỗi", message, "Thử lại");
         }
     }
 }

@@ -8,35 +8,53 @@
 
         <!-- Logo -->
         <Image Source="hsulogo.png" HeightRequest="120" HorizontalOptions="Center"/>
-
+        
+        <!-- Tiêu đề -->
+        <Label
+                Text="Đăng nhập vào HSU"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="#003087"
+                HorizontalOptions="Center"
+                Margin="0,0,0,20" />
+        
         <!-- Email Input -->
-        <Entry x:Name="EmailEntry"
-               Placeholder="Email sinh viên"
-               Keyboard="Email"
-               TextColor="Black"
-               PlaceholderColor="Gray"
-               BackgroundColor="White"
-               Margin="0,10,0,0"
-               HeightRequest="50"
-               />
+        <Frame
+                BackgroundColor="#F5F5F5"
+                CornerRadius="10"
+                Padding="15"
+                HasShadow="True">
+            <Entry x:Name="EmailEntry"
+                       Placeholder="Email sinh viên"
+                       Keyboard="Email"
+                       TextColor="Black"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       HeightRequest="50" />
+        </Frame>
 
         <!-- Password Input -->
-        <Entry x:Name="PasswordEntry"
-               Placeholder="Mật khẩu"
-               IsPassword="True"
-               TextColor="Black"
-               PlaceholderColor="Gray"
-               BackgroundColor="White"
-               Margin="0,10,0,0"
-               HeightRequest="50"
-               />
+        <Frame
+                BackgroundColor="#F5F5F5"
+                CornerRadius="10"
+                Padding="15"
+                HasShadow="True">
+            <Entry x:Name="PasswordEntry"
+                       Placeholder="Mật khẩu"
+                       IsPassword="True"
+                       TextColor="Black"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       HeightRequest="50" />
+        </Frame>
 
         <!-- Nút Đăng Nhập -->
         <Button Text="Đăng nhập"
-                BackgroundColor="#0066CC"
-                TextColor="White"
-                CornerRadius="10"
-                HeightRequest="50"
-                Clicked="OnLoginClicked"/>
+                    BackgroundColor="#003087"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    HorizontalOptions="Fill"
+                    Clicked="OnLoginClicked"/>
     </VerticalStackLayout>
 </ContentPage>

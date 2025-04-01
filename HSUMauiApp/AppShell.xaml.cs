@@ -9,7 +9,7 @@ namespace HSUMauiApp
         {
             InitializeComponent();
 
-            Routing.RegisterRoute(nameof(HomePage), typeof(HomePage));
+            Routing.RegisterRoute(nameof(LandingPage), typeof(LandingPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
         }
     }
