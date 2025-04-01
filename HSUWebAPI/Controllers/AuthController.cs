@@ -10,19 +10,19 @@ namespace HSUWebAPI.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
+    private const string EMAIL = "sinhvien@hoasen.edu.vn";
+    private const string PASSWORD = "123456";
+
     [HttpPost("login")]
-    public bool Login([FromBody] LoginDto userLogin)
+    public IActionResult Login([FromBody] LoginDto userLogin)
     {
-        var simpleUser = new LoginDto()
+        if (userLogin.Email.Equals(EMAIL, StringComparison.OrdinalIgnoreCase) && userLogin.Password.Equals(PASSWORD, StringComparison.OrdinalIgnoreCase))
         {
-            Email = "user@hoasen.edu.vn",
-            Password = "1234"
-        };
-
-        if (userLogin.Email != simpleUser.Email || userLogin.Password != simpleUser.Password) {
-            return false;
+            return Ok(new { success = true, message = "Login Success!" });
         }
-
-        return true;
+        else
+        {
+            return Unauthorized(new { success = false, message = "Login Invalid!" });
+        }
     }
 }

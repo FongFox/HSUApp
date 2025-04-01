@@ -20,16 +20,16 @@ namespace HSUMauiApp.ViewModels
         {
             try
             {
-                bool isLoggedIn = await _apiService.LoginAsync(email, password);
-                if (!isLoggedIn)
-                {
-                    // Hiển thị thông báo lỗi
-                    await DisplayAlert("Lỗi", "Đăng nhập không thành công", "OK");
-                }
-                else
+                var (success, message) = await _apiService.LoginAsync(email, password);
+                if (success)
                 {
                     // Đăng nhập thành công, chuyển đến trang chủ
                     await Navigation.PushAsync(new HomePage());
+                }
+                else
+                {
+                    // Hiển thị thông báo lỗi
+                    await DisplayAlert("Lỗi", message, "OK");
                 }
             }
             catch (Exception ex)
