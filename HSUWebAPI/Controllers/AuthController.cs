@@ -15,11 +15,11 @@ public class AuthController : ControllerBase
     {
         var simpleUser = new LoginDto()
         {
-            Name = "user",
+            Email = "user@hoasen.edu.vn",
             Password = "1234"
         };
 
-        if (userLogin.Name != simpleUser.Name || userLogin.Password != simpleUser.Password) {
+        if (userLogin.Email != simpleUser.Email || userLogin.Password != simpleUser.Password) {
             return false;
         }
 
