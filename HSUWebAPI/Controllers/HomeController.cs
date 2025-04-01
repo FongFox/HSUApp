@@ -1,9 +1,5 @@
-using System;
-using System.Drawing;
-using System.Text.Json.Serialization;
 using HSUWebAPI.Model;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
 
 namespace HSUWebAPI.Controllers;
 
@@ -14,35 +10,64 @@ public class HomeController : ControllerBase
   private readonly List<MenuModel> _menuModels = new List<MenuModel>(){
       new MenuModel {
         Name = "Absent Report",
-        Icon = "running-man",
-        TargetPage = "absent-report",
+        Icon = "absent",
+        TargetPage = "absent",
         IconColor = "#000080"
       },
       new MenuModel {
         Name = "Advisor Feedback",
-        Icon = "chart",
-        TargetPage = "advisor-feedback",
+        Icon = "feedback",
+        TargetPage = "advisor",
         IconColor = "#000080"
       },
       new MenuModel {
         Name = "Attendence",
-        Icon = "location-tick",
-        TargetPage = "attendence",
+        Icon = "attendance",
+        TargetPage = "attendance",
         IconColor = "#000080"
       },
       new MenuModel {
         Name = "Book Room",
-        Icon = "room-book",
-        TargetPage = "/book-room",
+        Icon = "book",
+        TargetPage = "book",
         IconColor = "#000080"
       },
       new MenuModel {
         Name = "Course Feedback",
-        Icon = "chart",
-        TargetPage = "course-feedback",
+        Icon = "feedback",
+        TargetPage = "course",
         IconColor = "#000080"
-      }
-
+      },
+      new MenuModel {
+        Name = "Events Attendenced",
+        Icon = "events",
+        TargetPage = "events",
+        IconColor = "#000080"
+      },
+      new MenuModel {
+        Name = "Exam",
+        Icon = "exam",
+        TargetPage = "exam",
+        IconColor = "#000080"
+      },
+      new MenuModel {
+        Name = "Grade",
+        Icon = "grade",
+        TargetPage = "grade",
+        IconColor = "#000080"
+      },
+      new MenuModel {
+        Name = "Hand Book",
+        Icon = "handbook",
+        TargetPage = "handbook",
+        IconColor = "#000080"
+      },
+      new MenuModel {
+        Name = "Internship",
+        Icon = "intern",
+        TargetPage = "intern",
+        IconColor = "#000080"
+      },
   };
 
   [HttpGet("icons")]

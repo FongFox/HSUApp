@@ -1,5 +1,6 @@
 ﻿using System;
-using HSUWebAPI.Dto;
+using HSUWebAPI.DTOs;
+
 //using HSUWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,13 +17,7 @@ public class AuthController : ControllerBase
         {
             Name = "user",
             Password = "1234"
-
-           // simpleUser.Name = "user";
-           // simpleUser.Password = "123456";
-
         };
-
-       
 
         if (userLogin.Name != simpleUser.Name || userLogin.Password != simpleUser.Password) {
             return false;
