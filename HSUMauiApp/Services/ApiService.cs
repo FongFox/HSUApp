@@ -11,11 +11,19 @@ public class ApiService
 
   public ApiService()
   {
-    _httpClient = new HttpClient
-    {
-      BaseAddress = new Uri("https://localhost:45723/api/")
-    };
-  }
+        //_httpClient = new HttpClient
+        //{
+        //  BaseAddress = new Uri("https://10.0.2.2:7107/api/")
+        //};
+        var handler = new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+        };
+        _httpClient = new HttpClient(handler)
+        {
+            BaseAddress = new Uri("https://10.0.2.2:7107/api/")
+        };
+    }
 
   // public async Task<bool> LoginAsync(string email, string password)
   // {
