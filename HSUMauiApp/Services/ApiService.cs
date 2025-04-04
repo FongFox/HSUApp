@@ -2,6 +2,8 @@ using System;
 using System.Text;
 using HSUMauiApp.Models;
 using Newtonsoft.Json;
+using HSUMauiApp.Services;
+
 
 namespace HSUMauiApp.Services;
 
@@ -11,11 +13,6 @@ public class ApiService
 
   public ApiService()
   {
-        //_httpClient = new HttpClient
-        //{
-        //  BaseAddress = new Uri("https://10.0.2.2:7107/api/")
-        //};
-
         var handler = new HttpClientHandler
         {
             ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true

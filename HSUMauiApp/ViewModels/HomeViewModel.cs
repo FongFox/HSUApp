@@ -1,47 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Input;
 using HSUMauiApp.Models;
 using HSUMauiApp.Services;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace HSUMauiApp.ViewModels
 {
-    public class HomeViewModel
+    public class HomeViewModel : BaseViewModel
     {
-        private readonly ApiService _apiService;
+        private ObservableCollection<MenuModel> _menuItems;
 
-        public HomeViewModel(ApiService apiService)
+        public ObservableCollection<MenuModel> MenuItems
         {
-            _apiService = apiService;
+            get => _menuItems;
+            set => SetProperty(ref _menuItems, value);
+        }
+
+        public HomeViewModel()
+        {
+            MenuItems = new ObservableCollection<MenuModel>();
         }
 
         public async Task LoadMenuModelsAsync()
         {
-            try
+            // Giả lập dữ liệu, có thể thay thế bằng gọi API thật
+            await Task.Delay(500);
+            MenuItems = new ObservableCollection<MenuModel>
             {
-                var res = await _apiService.GetMenuModelAsync();
-                // Làm gì đó với menuModels: lấy thông tin từ json để gán giá trị dữ liệu vào biến, từ đó có thể hiển thị ra view.
-                var menuItemList = res.ToList();
-            }
-            catch (HttpRequestException ex)
-            {
-                // Xử lý lỗi HTTP
-                Debug.WriteLine("Lỗi HTTP xảy ra khi gọi GetMenuModelAsync(): " + ex.Message);
-            }
-            catch (JsonException ex)
-            {
-                // Xử lý lỗi JSON
-                Debug.WriteLine("Lỗi JSON xảy ra khi gọi GetMenuModelAsync(): " + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                // Xử lý lỗi chung
-                Debug.WriteLine("Lỗi xảy ra khi gọi GetMenuModelAsync(): " + ex.Message);
-            }
+                new MenuModel { name = "Lịch học", description = "Xem thời khóa biểu", icon = "📅", iconColor = "#003087" },
+                new MenuModel { name = "Điểm số", description = "Xem điểm học tập", icon = "📊", iconColor = "#FF5733" },
+                new MenuModel { name = "Thông báo", description = "Xem thông báo mới", icon = "🔔", iconColor = "#FFC300" }
+            };
         }
     }
 }
